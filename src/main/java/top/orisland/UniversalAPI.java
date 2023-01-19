@@ -2,6 +2,7 @@ package top.orisland;
 
 import net.mamoe.mirai.console.plugin.jvm.JavaPlugin;
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescriptionBuilder;
+import net.mamoe.mirai.event.GlobalEventChannel;
 
 public final class UniversalAPI extends JavaPlugin {
     public static final UniversalAPI INSTANCE = new UniversalAPI();
@@ -16,5 +17,7 @@ public final class UniversalAPI extends JavaPlugin {
     @Override
     public void onEnable() {
         getLogger().info("Plugin loaded!");
+
+        GlobalEventChannel.INSTANCE.registerListenerHost(new Handler());
     }
 }
